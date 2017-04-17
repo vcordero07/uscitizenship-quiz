@@ -15,7 +15,7 @@ let quizAppData = {
     userAnswer: null,
     correctMSG: '',
     incorrectMSG: ''
-  }
+  },
   question2: {
     question: 'Name one state that borders Canada.',
     answers: {
@@ -28,7 +28,7 @@ let quizAppData = {
     userAnswer: null,
     correctMSG: '',
     incorrectMSG: ''
-  }
+  },
   question3: {
     question: 'Name one American Indian tribe in the United States.',
     answers: {
@@ -42,95 +42,21 @@ let quizAppData = {
     correctMSG: '',
     incorrectMSG: ''
   }
-  //   question4: {
-  //     question: '',
-  //     answers: {
-  //       a: '',
-  //       b: '',
-  //       c: '',
-  //       d: ''
-  //     },
-  //     correctAnswer: '',
-  //     userAnswer: null,
-  //     correctMSG: '',
-  //     incorrectMSG: ''
-  //   }
-  //   question5: {
-  //     question: '',
-  //     answers: {
-  //       a: '',
-  //       b: '',
-  //       c: '',
-  //       d: ''
-  //     },
-  //     correctAnswer: '',
-  //     userAnswer: null,
-  //     correctMSG: '',
-  //     incorrectMSG: ''
-  //   }
-  //   question6: {
-  //     question: '',
-  //     answers: {
-  //       a: '',
-  //       b: '',
-  //       c: '',
-  //       d: ''
-  //     },
-  //     correctAnswer: '',
-  //     userAnswer: null,
-  //     correctMSG: '',
-  //     incorrectMSG: ''
-  //   }
-  //   question7: {
-  //     question: '',
-  //     answers: {
-  //       a: '',
-  //       b: '',
-  //       c: '',
-  //       d: ''
-  //     },
-  //     correctAnswer: '',
-  //     userAnswer: null,
-  //     correctMSG: '',
-  //     incorrectMSG: ''
-  //   }
-  //   question8: {
-  //     question: '',
-  //     answers: {
-  //       a: '',
-  //       b: '',
-  //       c: '',
-  //       d: ''
-  //     },
-  //     correctAnswer: '',
-  //     userAnswer: null,
-  //     correctMSG: '',
-  //     incorrectMSG: ''
-  //   }
-  //   question9: {
-  //     question: '',
-  //     answers: {
-  //       a: '',
-  //       b: '',
-  //       c: '',
-  //       d: ''
-  //     },
-  //     correctAnswer: '',
-  //     userAnswer: null,
-  //     correctMSG: '',
-  //     incorrectMSG: ''
-  //   }
-  //   question10: {
-  //     question: '',
-  //     answers: {
-  //       a: '',
-  //       b: '',
-  //       c: '',
-  //       d: ''
-  //     },
-  //     correctAnswer: '',
-  //     userAnswer: null,
-  //     correctMSG: '',
-  //     incorrectMSG: ''
-  //   }
 }
+
+const renderQuestions = () => {
+  const questions = [];
+  console.log(quizAppData);
+  for (let question in quizAppData) {
+    console.log(question);
+    questions.push();
+  }
+  console.log(questions);
+};
+
+const renderQuiz = () => {
+  renderQuestions();
+  $('.quiz').html();
+}
+
+$(renderQuiz);
