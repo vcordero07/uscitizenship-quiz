@@ -17,37 +17,38 @@
   </header>
 
   <section class="start-section">
-    <input type='button' </section>
-    <section class="quiz-section">
 
-      <div class="questionContainer">
-        <p class="questionTitle">Add my question here</p>
-      </div>
-      <div class="radio">
-        <label><input type="radio" name="optradio">Option 1</label>
-      </div>
-      <div class="radio">
-        <label><input type="radio" name="optradio">Option 2</label>
-      </div>
-      <div class="radio">
-        <label><input type="radio" name="optradio">Option 3</label>
-      </div>
-      <div class="radio">
-        <label><input type="radio" name="optradio">Option 4</label>
-      </div>
-      </div>
-      <div class="nav-button">
-        <input type='button' value='Back' id='back-button' class="btn btn-default"></input>
-        <input type='button' value='Next' id='next-button' class="btn btn-default"></input>
-      </div>
-    </section>
-    <section class="result-section"></section>
 
-    <script src="https://code.jquery.com/jquery.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <p class="txt">Ready to take your US Citizenship Quiz? Click on Start to begin.</p>
+    <input type='button' value='Start' id='startBtn' class='btn btn-default'></input>
+  </section>
+  <section class="quiz-section">
 
-    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <div class="questionContainer">
+      <p class="txt" id='question'>Add my question here</p>
+    </div>
+    <div class="radio" id='answers'>
+      <label><input type="radio" value='0' name="optradio">Option 1</label><br>
+    </div>
+    <div class="nav-button">
+      <input type='button' value='Back' id='back-button' class="btn btn-default"></input>
+      <input type='button' value='Next' id='next-button' class="btn btn-default"></input>
+    </div>
+
+  </section>
+
+  <section class="results-section">
+    <h2 class="txt">Your Final Score is: </h2>
+    <h3 class="final-score">0/10</h3>
+    <div class="result-msg"></div>
+    <input type='button' value='Try Again' id='try-again' class='btn btn-default'></input>
+  </section>
+
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 
 </body>
 
