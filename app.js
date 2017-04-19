@@ -100,19 +100,95 @@ let quizAppData = [
 ];
 
 
+let currentQuestion = 0;
+let numOfQuestion = quizAppData.length;
+let numOfCorrectAnswers = 0;
+
+let questionDisplay = () => {
+  $('#question').text(quizAppData[currentQuestion].question);
+
+  $('#answers').empty();
+
+  let numberOfAnswers = quizAppData[currentQuestion].answers.length;
+
+  for (let i = 0; i < numberOfAnswers; i++) {
+    let answersHTML = `<label><input type='radio' class='option' name='option' value='${i}'> ${quizAppData[currentQuestion].answers[i]} </label><br>`;
+    $('#answers').append(answersHTML);
+  }
+};
+
+$('.quiz-section').on('click', '.option', () => {
+  let userAnswer = Number($("input[class='option']:checked").val());
+
+  let correctAnswer = quizAppData[currentQuestion].correctAnswer;
+  //     console.log(userAnswer);
+  //     console.log(correctAnswer);
+  //     console.log('numOfCorrectAnswers: ', numOfCorrectAnswers)
+  //     console.log((userAnswer === correctAnswer));
+  if (userAnswer === correctAnswer) {
+    numOfCorrectAnswers++;
+  }
+  //     console.log('numOfCorrectAnswers: ', numOfCorrectAnswers)
+
+
+  if ((currentQuestion + 1) === numOfQuestion) {
+    //       console.log(numOfCorrectAnswers);
+    //       console.log(numOfQuestion);
+
+    $('.final-score').text(numOfCorrectAnswers + '/' + numOfQuestion);
+
+    $('.quiz-section').hide();
+    $('.start-section').hide();
+    $('.result-section').show();
+  } else {
+    currentQuestion++;
+    //questionDisplay();
+  }
+
+});
+
+$('.nav-button').on('click', '#next-button', () => {
+  questionDisplay();
+});
+
+$('.nav-button').on('click', '#back-button', () => {
+  if (currentQuestion !== 0) {
+    currentQuestion--;
+    questionDisplay();
+  } else {
+    console.log('backbtn - goes to start page');
+  }
+})
+
+$('.result-section').on('click', '#try-again', () => {
+  $('.start-section').show();
+  $('.quiz-section').hide();
+  $('.result-section').hide();
+
+  currentQuestion = 0;
+  numOfCorrectAnswers = 0;
+});
 
 
 
-console.log(quizAppData);
 
-// const renderQuestions = () => {
+const renderQuiz = () => {
 
-//   //console.log(questions);
-// };
+  $('.quiz-section').hide();
+  $('.result-section').hide();
 
-// const renderQuiz = () => {
-//   renderQuestions();
-//   $('.quiz').html();
-// }
+
+
+  $('#startBtn').on('click', () => {
+    $('.result-section').hide();
+    $('.start-section').hide();
+    $('.quiz-section').show();
+
+    $('.result_msg').empty();
+    questionDisplay();
+  });
+
+
+}
 
 $(renderQuiz);
