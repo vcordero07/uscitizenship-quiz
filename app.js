@@ -117,8 +117,28 @@ let questionDisplay = () => {
   }
 };
 
+
+let resultsDisplay = () => {
+  $('.result-msg').empty();
+  for (let i = 0; i < numOfQuestion; i++) {
+    let resultsHTML = `<p>${quizAppData[i].question}</p><span>${quizAppData[i].answers[quizAppData[i].userAnswer]}</span>`;
+    $('.result-msg').append(resultsHTML);
+  }
+};
+
+
+
+//need to fix this because if I click more than once I would count that
+//this needs to be tied to the next button.
 $('.quiz-section').on('click', '.option', () => {
   let userAnswer = Number($("input[class='option']:checked").val());
+
+  console.log(quizAppData[currentQuestion].userAnswer);
+  quizAppData[currentQuestion].userAnswer = userAnswer;
+
+  console.log(quizAppData[currentQuestion].userAnswer);
+
+
 
   let correctAnswer = quizAppData[currentQuestion].correctAnswer;
   //     console.log(userAnswer);
@@ -136,6 +156,10 @@ $('.quiz-section').on('click', '.option', () => {
     //       console.log(numOfQuestion);
 
     $('.final-score').text(numOfCorrectAnswers + '/' + numOfQuestion);
+
+    console.log(quizAppData);
+    resultsDisplay();
+
 
     $('.quiz-section').hide();
     $('.start-section').hide();
