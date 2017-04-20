@@ -4,7 +4,6 @@ const classes = {
   incorrectMSG: ['Uh-uh', 'Nope', 'No way, Jose', 'No Siree', 'Strike', 'Negative']
 }
 
-
 //get random key message work
 Array.prototype.randomMSG = function() {
   return this[Math.floor(Math.random() * this.length)];
@@ -14,8 +13,6 @@ Array.prototype.randomMSG = function() {
 //    //    correctMSG: `${classes.correctMSG.randomMSG()}, that is the correct Answer!`,
 //   //  incorrectMSG: `${classes.incorrectMSG.randomMSG()}, the correct Answer is ${quizAppData[0].answers[1]}.`
 // };
-
-
 
 let quizAppData = [
   //question1:
@@ -115,6 +112,12 @@ let questionDisplay = () => {
     let answersHTML = `<label><input type='radio' class='option' name='option' value='${i}'> ${quizAppData[currentQuestion].answers[i]} </label><br>`;
     $('#answers').append(answersHTML);
   }
+
+  if (currentQuestion === 0) {
+    $("#back-button").prop("disabled", true);
+  } else {
+    $("#back-button").prop("disabled", false);
+  }
 };
 
 
@@ -126,40 +129,21 @@ let resultsDisplay = () => {
   }
 };
 
+let handleClickNext = () => {
 
-
-//need to fix this because if I click more than once I would count that
-//this needs to be tied to the next button.
-$('.quiz-section').on('click', '.option', () => {
   let userAnswer = Number($("input[class='option']:checked").val());
-
-  console.log(quizAppData[currentQuestion].userAnswer);
   quizAppData[currentQuestion].userAnswer = userAnswer;
 
-  console.log(quizAppData[currentQuestion].userAnswer);
-
-
-
   let correctAnswer = quizAppData[currentQuestion].correctAnswer;
-  //     console.log(userAnswer);
-  //     console.log(correctAnswer);
-  //     console.log('numOfCorrectAnswers: ', numOfCorrectAnswers)
-  //     console.log((userAnswer === correctAnswer));
+
   if (userAnswer === correctAnswer) {
     numOfCorrectAnswers++;
   }
-  //     console.log('numOfCorrectAnswers: ', numOfCorrectAnswers)
-
 
   if ((currentQuestion + 1) === numOfQuestion) {
-    //       console.log(numOfCorrectAnswers);
-    //       console.log(numOfQuestion);
 
     $('.final-score').text(numOfCorrectAnswers + '/' + numOfQuestion);
-
-    console.log(quizAppData);
     resultsDisplay();
-
 
     $('.quiz-section').hide();
     $('.start-section').hide();
@@ -169,50 +153,66 @@ $('.quiz-section').on('click', '.option', () => {
     //questionDisplay();
   }
 
-});
-
-$('.nav-button').on('click', '#next-button', () => {
   questionDisplay();
-});
+};
 
-$('.nav-button').on('click', '#back-button', () => {
+let handleClickBack = () => {
   if (currentQuestion !== 0) {
     currentQuestion--;
     questionDisplay();
   } else {
-    console.log('backbtn - goes to start page');
-  }
-})
+    //disable back button when you tried to go back to the start or 0
+    //      $("#back").prop("disabled", true);
 
-$('.result-section').on('click', '#try-again', () => {
+    handleClickTryAgain();
+  }
+};
+
+let handleClickTryAgain = () => {
   $('.start-section').show();
   $('.quiz-section').hide();
   $('.result-section').hide();
+  //todo
+  //clear user data
+  //$('.result_msg').empty();
 
   currentQuestion = 0;
   numOfCorrectAnswers = 0;
-});
+};
+
+let handleClickStart = () => {
+  $('.result-section').hide();
+  $('.start-section').hide();
+  $('.quiz-section').show();
+
+  questionDisplay();
+}
 
 
+let createEventListeners = () => {
+  $('#startBtn').on('click', () => {
+    handleClickStart();
+  });
 
+  $('.nav-button').on('click', '#back-button', () => {
+    handleClickBack();
+  })
+
+  $('.result-section').on('click', '#try-again', () => {
+    handleClickTryAgain();
+  });
+
+  $('.nav-button').on('click', '#next-button', () => {
+    handleClickNext();
+  });
+};
 
 const renderQuiz = () => {
 
   $('.quiz-section').hide();
   $('.result-section').hide();
 
-
-
-  $('#startBtn').on('click', () => {
-    $('.result-section').hide();
-    $('.start-section').hide();
-    $('.quiz-section').show();
-
-    $('.result_msg').empty();
-    questionDisplay();
-  });
-
-
+  createEventListeners();
 }
 
 $(renderQuiz);
