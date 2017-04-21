@@ -4,6 +4,7 @@ const classes = {
   incorrectMSG: ['Uh-uh', 'Nope', 'No way, Jose', 'No Siree', 'Strike', 'Negative']
 }
 
+
 //get random key message work
 Array.prototype.randomMSG = function() {
   return this[Math.floor(Math.random() * this.length)];
@@ -13,6 +14,8 @@ Array.prototype.randomMSG = function() {
 //    //    correctMSG: `${classes.correctMSG.randomMSG()}, that is the correct Answer!`,
 //   //  incorrectMSG: `${classes.incorrectMSG.randomMSG()}, the correct Answer is ${quizAppData[0].answers[1]}.`
 // };
+
+
 
 let quizAppData = [
   //question1:
@@ -118,6 +121,10 @@ let questionDisplay = () => {
   } else {
     $("#back-button").prop("disabled", false);
   }
+
+  $('.status').text('Question: ' + currentQuestion + '/' + numOfQuestion);
+  $('.score').text('Score: ' + numOfCorrectAnswers + '/' + numOfQuestion);
+  console.log(numOfCorrectAnswers);
 };
 
 
@@ -161,9 +168,6 @@ let handleClickBack = () => {
     currentQuestion--;
     questionDisplay();
   } else {
-    //disable back button when you tried to go back to the start or 0
-    //      $("#back").prop("disabled", true);
-
     handleClickTryAgain();
   }
 };
