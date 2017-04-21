@@ -131,14 +131,27 @@ let questionDisplay = () => {
 let resultsDisplay = () => {
   $('.result-msg').empty();
   for (let i = 0; i < numOfQuestion; i++) {
-    let resultsHTML = `<p>${quizAppData[i].question}</p><span>${quizAppData[i].answers[quizAppData[i].userAnswer]}</span>`;
+    let resultsHTML = `<button class="accordion">
+                      ${quizAppData[i].question}
+                      </button>
+                      <div class="panel">
+                      <p>${quizAppData[i].answers[quizAppData[i].userAnswer]}</p>
+                      </div>`;
     $('.result-msg').append(resultsHTML);
   }
 };
 
+
+
 let handleClickNext = () => {
 
   let userAnswer = Number($("input[class='option']:checked").val());
+
+  //   if (isNaN(userAnswer)) {
+  //     alert('please select an answer before clicking on next');
+  //   } else {
+
+
   quizAppData[currentQuestion].userAnswer = userAnswer;
 
   let correctAnswer = quizAppData[currentQuestion].correctAnswer;
@@ -161,6 +174,7 @@ let handleClickNext = () => {
   }
 
   questionDisplay();
+  //       };
 };
 
 let handleClickBack = () => {
@@ -208,6 +222,17 @@ let createEventListeners = () => {
 
   $('.nav-button').on('click', '#next-button', () => {
     handleClickNext();
+  });
+
+  $('body').on('click', '.accordion', function() {
+    this.classList.toggle('active');
+
+    let panel = this.nextElementSibling;
+    if (panel.style.display === 'block') {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    };
   });
 };
 

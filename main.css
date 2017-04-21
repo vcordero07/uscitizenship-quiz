@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif
+}
+
+body {
+  max-width: 960px;
+  margin: 0 auto;
+  min-width: 250px;
+  padding: 30px;
+}
+
+input.classic-btn {
+  background: #white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  color: #black;
+  line-height: 10px;
+  margin: 3%;
+  padding: 11px 11px;
+  text-decoration: none;
+  transition-duration: .4s;
+}
+
+input.classic-btn:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+input.normal-btn:hover {
+  background-color: #54A0CC;
+}
+
+input.normal-btn:active {
+  background-color: #4B8EB5;
+}
+
+
+/* Style the buttons that are used to open and close the accordion panel */
+
+button.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+
+button.accordion.active, button.accordion:hover {
+  background-color: #ddd;
+}
+
+
+/* Style the accordion panel. Note: hidden by default */
+
+div.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+}
