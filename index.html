@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://code.jquery.com/jquery.min.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
 
   <title>US Citizenship Quiz</title>
 </head>
@@ -44,17 +45,20 @@
 
   </section>
   <section class="result-section">
-    <h2 class="txt">Your Final Score is: </h2>
-    <h3 class="final-score">0/10</h3>
-    <div class="result-msg"></div>
+    <div id='accordion'>
+      <h3 class="final-score" id='finalscore'>0/10</h3>
+      <div class="result-msg"></div>
+    </div>
     <input type='button' value='Try Again' id='try-again' class='btn btn-default'></input>
   </section>
 
-  <script src="https://code.jquery.com/jquery.min.js"></script>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+
+
+  <script src="https://code.jquery.com/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 </body>
 
