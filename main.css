@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: sans-serif
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -40,4 +40,41 @@ h4 {
 
 p.answers {
   font-style: italic;
+}
+
+label.answers {
+  display: block;
+  padding: 6px;
+  border-radius: 6px;
+  border: solid 1px #dde7e8;
+  font-weight: 400;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+input[type=radio] {
+  margin: 4px 0 0;
+  line-height: normal;
+  box-sizing: border-box;
+}
+
+.title-section {
+  background: #007fbe;
+  color: #FFF;
+  /*  font-size: 22px; */
+  padding: 8px 30px;
+  font-weight: 300;
+  margin: 0 -30px 10px;
+  position: relative;
+}
+
+.questionContainer {
+  /* background: #007fbe; */
+  background: #BF0A30;
+  color: #FFF;
+  /*     font-size: 22px; */
+  padding: 8px 30px;
+  font-weight: 300;
+  margin: 0 -30px 10px;
+  position: relative;
 }
