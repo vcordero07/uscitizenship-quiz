@@ -4,7 +4,6 @@ const classes = {
   incorrectMSG: ['Uh-uh', 'Nope', 'No way, Jose', 'No Siree', 'Strike', 'Negative']
 }
 
-
 //get random key message work
 Array.prototype.randomMSG = function() {
   return this[Math.floor(Math.random() * this.length)];
@@ -14,7 +13,6 @@ Array.prototype.randomMSG = function() {
 //    //    correctMSG: `${classes.correctMSG.randomMSG()}, that is the correct Answer!`,
 //   //  incorrectMSG: `${classes.incorrectMSG.randomMSG()}, the correct Answer is ${quizAppData[0].answers[1]}.`
 // };
-
 
 
 let quizAppData = [
@@ -131,38 +129,46 @@ let questionDisplay = () => {
 let resultsDisplay = () => {
   $('.result-msg').empty();
   for (let i = 0; i < numOfQuestion; i++) {
-    let resultsHTML = `<button class="accordion">
-                      ${quizAppData[i].question}
-                      </button>
-                      <div class="panel">
-                      <p>${quizAppData[i].answers[quizAppData[i].userAnswer]}</p>
-                      </div>`;
+    //     let resultsHTML = `<button class="accordion">
+    //                       ${quizAppData[i].question}
+    //                       </button>
+    //                       <div class="panel">
+    //                       <p>${quizAppData[i].answers[quizAppData[i].userAnswer]}</p>
+    //                       </div>`;
+    let resultsHTML = `<h4>${quizAppData[i].question}</h4>
+     <div>
+     <p class='answers'>${quizAppData[i].answers[quizAppData[i].userAnswer]}</p>
+     </div>`;
+
+
     $('.result-msg').append(resultsHTML);
+    //$('#accordion').accordion();
   }
+  //$('#finalscore').accordion();
+  $('#accordion').accordion({
+    collapsible: true,
+    heightStyle: "content"
+
+  });
+
 };
 
 
 
 let handleClickNext = () => {
-
   let userAnswer = Number($("input[class='option']:checked").val());
-
   //   if (isNaN(userAnswer)) {
   //     alert('please select an answer before clicking on next');
   //   } else {
 
-
   quizAppData[currentQuestion].userAnswer = userAnswer;
-
   let correctAnswer = quizAppData[currentQuestion].correctAnswer;
 
   if (userAnswer === correctAnswer) {
     numOfCorrectAnswers++;
   }
-
   if ((currentQuestion + 1) === numOfQuestion) {
-
-    $('.final-score').text(numOfCorrectAnswers + '/' + numOfQuestion);
+    $('.final-score').text('Your Final Score is: ' + numOfCorrectAnswers + '/' + numOfQuestion);
     resultsDisplay();
 
     $('.quiz-section').hide();
@@ -172,7 +178,6 @@ let handleClickNext = () => {
     currentQuestion++;
     //questionDisplay();
   }
-
   questionDisplay();
   //       };
 };
@@ -224,16 +229,6 @@ let createEventListeners = () => {
     handleClickNext();
   });
 
-  $('body').on('click', '.accordion', function() {
-    this.classList.toggle('active');
-
-    let panel = this.nextElementSibling;
-    if (panel.style.display === 'block') {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    };
-  });
 };
 
 const renderQuiz = () => {
