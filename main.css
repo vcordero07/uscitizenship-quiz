@@ -11,52 +11,6 @@ body {
   background: #34495e;
 }
 
-input.classic-btn {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-  color: black;
-  line-height: 10px;
-  margin: 3%;
-  padding: 11px 11px;
-  text-decoration: none;
-  transition-duration: .4s;
-}
-
-input.classic-btn:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-input.normal-btn:hover {
-  /*   background-color: #54A0CC; */
-  background-color: #007fbe;
-  color: white;
-}
-
-h4 {
-  font-weight: bold;
-}
-
-p.answers {
-  font-style: italic;
-}
-
-label.answers {
-  display: block;
-  padding: 6px;
-  border-radius: 6px;
-  border: solid 1px #dde7e8;
-  font-weight: 400;
-  font-size: 13px;
-  cursor: pointer;
-}
-
-input[type=radio] {
-  margin: 4px 0 0;
-  line-height: normal;
-  box-sizing: border-box;
-}
-
 .quizTitle {
   background: #007fbe;
   color: #FFF;
@@ -96,7 +50,75 @@ input[type=radio] {
   position: relative;
 }
 
+label.answers {
+  display: block;
+  padding: 6px;
+  border-radius: 6px;
+  border: solid 1px #dde7e8;
+  font-weight: 400;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+p.answers {
+  font-style: italic;
+}
+
+h4 {
+  font-weight: bold;
+}
+
+input[type='radio']:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #007fbe;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
 #try-again {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+input.classic-btn {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  color: black;
+  line-height: 10px;
+  margin: 3%;
+  padding: 11px 11px;
+  text-decoration: none;
+  transition-duration: .4s;
+}
+
+input.classic-btn:not([disabled]):hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+input.normal-btn:not([disabled]):hover {
+  /*   background-color: #54A0CC; */
+  background-color: #007fbe;
+  color: white;
 }
