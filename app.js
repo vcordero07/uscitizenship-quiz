@@ -2,7 +2,7 @@ console.clear();
 const classes = {
   correctMSG: ['Aye Captain', 'Indubitably', 'OK', 'Sure', 'Oh Yeah', 'Yay'],
   incorrectMSG: ['Uh-uh', 'Nope', 'No way, Jose', 'No Siree', 'Strike', 'Negative']
-}
+};
 
 //get random key message work
 Array.prototype.randomMSG = function() {
@@ -209,7 +209,7 @@ let handleClickStart = () => {
   $('.quiz-section').show();
 
   questionDisplay();
-}
+};
 
 
 let createEventListeners = () => {
@@ -219,7 +219,7 @@ let createEventListeners = () => {
 
   $('.nav-button').on('click', '#back-button', () => {
     handleClickBack();
-  })
+  });
 
   $('.result-section').on('click', '#try-again', () => {
     handleClickTryAgain();
@@ -237,6 +237,6 @@ const renderQuiz = () => {
   $('.result-section').hide();
 
   createEventListeners();
-}
+};
 
 $(renderQuiz);
