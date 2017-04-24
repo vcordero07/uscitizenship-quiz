@@ -18,7 +18,6 @@
     <h1 class="quizTitle">US Citizenship Quiz</h1>
   </header>
   <section class="start-section">
-    <img src="img/UNCLESam3.png" alt="uncle-sam">
     <p class="txt">Ready to take your US Citizenship Quiz? Click on Start to begin.</p>
 
     <input type='button' value='Start' id='startBtn' class='btn btn-default classic-btn normal-btn'></input>
@@ -33,14 +32,23 @@
 
     </div>
     </div>
-    <div class="status-score">
-      <span class="status">Question: 1/10</span>
-      <span class="score">Score: 1/10</span>
+    <div class="nav-status-bar">
+      <div class="question-validation">
+        <p>test</p>
+      </div>
+      <div class="nav-row">
+        <div class="status-score">
+          <span class="status">Question: 1/10</span>
+          <span class="score">Score: 1/10</span>
+        </div>
+
+        <div class="nav-button">
+          <input type='button' value='Back' id='back-button' class="btn btn-default classic-btn normal-btn"></input>
+          <input type='button' value='Next' id='next-button' class="btn btn-default classic-btn normal-btn"></input>
+        </div>
+      </div>
     </div>
-    <div class="nav-button">
-      <input type='button' value='Back' id='back-button' class="btn btn-default classic-btn normal-btn"></input>
-      <input type='button' value='Next' id='next-button' class="btn btn-default classic-btn normal-btn"></input>
-    </div>
+
 
   </section>
   <section class="result-section">
@@ -48,7 +56,7 @@
       <h3 class="final-score" id='finalscore'>0/10</h3>
       <div class="result-msg"></div>
     </div>
-    <input type='button' value='Try Again' id='try-again' class='btn btn-default'></input>
+    <input type='button' value='Try Again' id='try-again' class='classic-btn normal-btn btn btn-default try-again'></input>
   </section>
 
   <script src="https://code.jquery.com/jquery.min.js"></script>

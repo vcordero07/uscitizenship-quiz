@@ -2,7 +2,8 @@ console.clear();
 const classes = {
   correctMSG: ['Aye Captain', 'Indubitably', 'OK', 'Sure', 'Oh Yeah', 'Yay'],
   incorrectMSG: ['Uh-uh', 'Nope', 'No way, Jose', 'No Siree', 'Strike', 'Negative']
-};
+}
+
 
 //get random key message work
 Array.prototype.randomMSG = function() {
@@ -13,6 +14,7 @@ Array.prototype.randomMSG = function() {
 //    //    correctMSG: `${classes.correctMSG.randomMSG()}, that is the correct Answer!`,
 //   //  incorrectMSG: `${classes.incorrectMSG.randomMSG()}, the correct Answer is ${quizAppData[0].answers[1]}.`
 // };
+
 
 
 let quizAppData = [
@@ -110,7 +112,7 @@ let questionDisplay = () => {
   let numberOfAnswers = quizAppData[currentQuestion].answers.length;
 
   for (let i = 0; i < numberOfAnswers; i++) {
-    let answersHTML = `<label><input type='radio' class='option' name='option' value='${i}'> ${quizAppData[currentQuestion].answers[i]} </label><br>`;
+    let answersHTML = `<label class='answers'><input type='radio' class='option' name='option' value='${i}'> ${quizAppData[currentQuestion].answers[i]} </label><br>`;
     $('#answers').append(answersHTML);
   }
 
@@ -122,7 +124,7 @@ let questionDisplay = () => {
 
   $('.status').text('Question: ' + currentQuestion + '/' + numOfQuestion);
   $('.score').text('Score: ' + numOfCorrectAnswers + '/' + numOfQuestion);
-  console.log(numOfCorrectAnswers);
+  console.log('numOfCorrectAnswers: ' + numOfCorrectAnswers);
 };
 
 
@@ -153,21 +155,47 @@ let resultsDisplay = () => {
 
 };
 
+let handleAnswersValidation = () => {
+
+  let userAnswer = Number($("input[class='option']:checked").val());
+  let correctAnswer = quizAppData[currentQuestion].correctAnswer;
+
+  if (isNaN(userAnswer)) {
+    //console.log('userAnswer isNan: ' + isNaN(userAnswer))
+  } else {
+    quizAppData[currentQuestion].userAnswer = userAnswer;
+    $('.option').prop('disabled', !this.checked);
+
+    if (userAnswer !== correctAnswer) {
+      $("input[class='option']:checked").parent().css("border", "2px solid #BF0A30");
+
+      $('input.option').filter(function() {
+        return Number($(this).val()) === correctAnswer;
+      }).parent().css("border", "2px solid #007fbe");
+
+    } else {
+      numOfCorrectAnswers++;
+
+      $('input.option').filter(function() {
+        return Number($(this).val()) === correctAnswer;
+      }).parent().css("border", "2px solid #007fbe");
+    }
+
+  }
+
+};
 
 
 let handleClickNext = () => {
-  let userAnswer = Number($("input[class='option']:checked").val());
-  //   if (isNaN(userAnswer)) {
-  //     alert('please select an answer before clicking on next');
-  //   } else {
 
-  quizAppData[currentQuestion].userAnswer = userAnswer;
-  let correctAnswer = quizAppData[currentQuestion].correctAnswer;
 
-  if (userAnswer === correctAnswer) {
-    numOfCorrectAnswers++;
-  }
+
+  //   if (userAnswer === correctAnswer) {
+
+  //   }
+
   if ((currentQuestion + 1) === numOfQuestion) {
+
     $('.final-score').text('Your Final Score is: ' + numOfCorrectAnswers + '/' + numOfQuestion);
     resultsDisplay();
 
@@ -176,10 +204,10 @@ let handleClickNext = () => {
     $('.result-section').show();
   } else {
     currentQuestion++;
-    //questionDisplay();
   }
+
+
   questionDisplay();
-  //       };
 };
 
 let handleClickBack = () => {
@@ -209,7 +237,7 @@ let handleClickStart = () => {
   $('.quiz-section').show();
 
   questionDisplay();
-};
+}
 
 
 let createEventListeners = () => {
@@ -219,10 +247,14 @@ let createEventListeners = () => {
 
   $('.nav-button').on('click', '#back-button', () => {
     handleClickBack();
-  });
+  })
 
   $('.result-section').on('click', '#try-again', () => {
     handleClickTryAgain();
+  });
+
+  $('.radio').on('click', () => {
+    handleAnswersValidation();
   });
 
   $('.nav-button').on('click', '#next-button', () => {
@@ -237,6 +269,6 @@ const renderQuiz = () => {
   $('.result-section').hide();
 
   createEventListeners();
-};
+}
 
 $(renderQuiz);
