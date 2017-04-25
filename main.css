@@ -8,7 +8,7 @@ body {
   margin: 0 auto;
   min-width: 250px;
   padding: 30px;
-  background-color #34495e;
+  background-color: #34495e;
 }
 
 %clearfix {
@@ -49,7 +49,7 @@ body {
 }
 
 .item-incorrect {
-  background-color darken(white, 2%);
+  background-color: darken(#FFF, 2%);
   @include chk(#BF0A30, "\f00d");
 }
 
@@ -58,7 +58,7 @@ body {
 }
 
 .quizTitle {
-  background-color #007fbe;
+  background-color: #007fbe;
   color: #FFF;
   /*  font-size: 22px; */
   padding: 8px 30px;
@@ -68,18 +68,18 @@ body {
 }
 
 .title-section {
-  background-color white;
+  background-color: #FFF;
   display: block;
-  border: 1px solid white;
+  border: 1px solid #FFF;
   padding: 10px 20px 0px;
   border-radius: 3px;
   margin: 0 10px;
 }
 
 .start-section, .quiz-section, .result-section {
-  background-color white;
+  background-color: #FFF;
   display: block;
-  border: solid 1px white;
+  border: solid 1px #FFF;
   padding: 10px 20px 0px;
   border-radius: 3px;
   margin: 0 10px;
@@ -87,8 +87,8 @@ body {
 }
 
 .questionContainer {
-  /* background-color #007fbe; */
-  background-color #BF0A30;
+  /* background-color: #007fbe; */
+  background-color: #BF0A30;
   color: #FFF;
   padding: 8px 30px;
   font-weight: 300;
@@ -107,7 +107,7 @@ label.answers {
 }
 
 .question-validation {
-  background-color #BF0A30;
+  background-color: #BF0A30;
   color: #FFF;
   padding: 8px 30px;
   font-weight: 300;
@@ -134,7 +134,7 @@ input[type='radio']:after {
   content: '';
   display: inline-block;
   visibility: visible;
-  border: 2px solid white;
+  border: 2px solid #FFF;
 }
 
 input[type='radio']:checked:after {
@@ -148,7 +148,7 @@ input[type='radio']:checked:after {
   content: '';
   display: inline-block;
   visibility: visible;
-  border: 2px solid white;
+  border: 2px solid #FFF;
 }
 
 .try-again {
@@ -157,7 +157,7 @@ input[type='radio']:checked:after {
 }
 
 input.classic-btn {
-  background-color white;
+  background-color: #FFF;
   border-radius: 10px;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
   color: black;
@@ -173,7 +173,7 @@ input.classic-btn:not([disabled]):hover {
 }
 
 input.normal-btn:not([disabled]):hover {
-  /*   background-color: #54A0CC; */
-  background-color: #007fbe;
-  color: white;
+  /*   background-color:: #54A0CC; */
+  background-color: : #007fbe;
+  color: #FFF;
 }
