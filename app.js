@@ -155,31 +155,58 @@ let resultsDisplay = () => {
 
 };
 
-let handleAnswersValidation = () => {
-
+let getAnswers = () => {
   let userAnswer = Number($("input[class='option']:checked").val());
   let correctAnswer = quizAppData[currentQuestion].correctAnswer;
+
+  return {
+    userAnswer,
+    correctAnswer
+  };
+
+  //       return {
+  //           userAnswer: userAnswer,
+  //           correctAnswer: correctAnswer
+  //       };
+};
+
+let handleAnswersValidation = () => {
+
+  const {
+    correctAnswer,
+    userAnswer
+  } = getAnswers();
+  // same as:
+  // const answers = getAnswers();
+  // const correctAnswer = answers.correctAnswer;
+  //const userAnswer = answers.userAnswer;
+
 
   if (isNaN(userAnswer)) {
     //console.log('userAnswer isNan: ' + isNaN(userAnswer))
   } else {
-    quizAppData[currentQuestion].userAnswer = userAnswer;
     $('.option').prop('disabled', !this.checked);
 
     if (userAnswer !== correctAnswer) {
-      $("input[class='option']:checked").parent().css("border", "2px solid #BF0A30");
+      $("input[class='option']:checked").parent().css("border", "2px solid #BF0A30").addClass('item-incorrect');
+      //$("input[class='option']:checked").parent();
 
       $('input.option').filter(function() {
         return Number($(this).val()) === correctAnswer;
-      }).parent().css("border", "2px solid #007fbe");
+      }).parent().css("border", "2px solid #007fbe").addClass('item-correct');
+
 
     } else {
-      numOfCorrectAnswers++;
+      if (!quizAppData[currentQuestion].userAnswer) {
+        numOfCorrectAnswers++;
+      }
 
       $('input.option').filter(function() {
         return Number($(this).val()) === correctAnswer;
-      }).parent().css("border", "2px solid #007fbe");
+      }).parent().css("border", "2px solid #007fbe").addClass('item-correct');
     }
+    quizAppData[currentQuestion].userAnswer = userAnswer;
+
 
   }
 
@@ -187,27 +214,30 @@ let handleAnswersValidation = () => {
 
 
 let handleClickNext = () => {
+  const {
+    correctAnswer,
+    userAnswer
+  } = getAnswers();
 
-
-
-  //   if (userAnswer === correctAnswer) {
-
-  //   }
-
-  if ((currentQuestion + 1) === numOfQuestion) {
-
-    $('.final-score').text('Your Final Score is: ' + numOfCorrectAnswers + '/' + numOfQuestion);
-    resultsDisplay();
-
-    $('.quiz-section').hide();
-    $('.start-section').hide();
-    $('.result-section').show();
+  if (isNaN(userAnswer)) {
+    $('.modal').modal('toggle');
   } else {
-    currentQuestion++;
+
+    if ((currentQuestion + 1) === numOfQuestion) {
+
+      $('.final-score').text('Your Final Score is: ' + numOfCorrectAnswers + '/' + numOfQuestion);
+      resultsDisplay();
+
+      $('.quiz-section').hide();
+      $('.start-section').hide();
+      $('.result-section').show();
+    } else {
+      currentQuestion++;
+    }
+
+
+    questionDisplay();
   }
-
-
-  questionDisplay();
 };
 
 let handleClickBack = () => {
