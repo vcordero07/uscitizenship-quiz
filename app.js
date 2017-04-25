@@ -99,6 +99,7 @@ let quizAppData = [
   }
 ];
 
+//add remaining 90 questions, then do an array shuffle and pick 10
 
 let currentQuestion = 0;
 let numOfQuestion = quizAppData.length;
@@ -220,8 +221,18 @@ let handleClickNext = () => {
   } = getAnswers();
 
   if (isNaN(userAnswer)) {
-    $('.modal').modal('toggle');
+    //$('.modal').modal('toggle');
+    $('#next-button').popover({
+      html: true,
+      title: 'Error:',
+      animation: true,
+      //       'trigger': 'hover',
+      placement: 'right',
+      content: 'Please select an answer.'
+    });
+
   } else {
+    $('next-button').popover('destroy');
 
     if ((currentQuestion + 1) === numOfQuestion) {
 

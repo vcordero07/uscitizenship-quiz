@@ -106,15 +106,6 @@ label.answers {
   cursor: pointer;
 }
 
-.question-validation {
-  background-color: #BF0A30;
-  color: #FFF;
-  padding: 8px 30px;
-  font-weight: 300;
-  margin: 0 -20px 10px;
-  position: relative;
-}
-
 p.answers {
   font-style: italic;
 }
@@ -174,6 +165,18 @@ input.classic-btn:not([disabled]):hover {
 
 input.normal-btn:not([disabled]):hover {
   /*   background-color:: #54A0CC; */
-  background-color: : #007fbe;
+  background-color: #007fbe;
   color: #FFF;
+}
+
+.popover-title {
+  background-color: #BF0A30;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.popover-content {
+  background-color: white;
+  color: #BF0A30;
+  padding: 10px;
 }
