@@ -11,50 +11,60 @@ body {
   background-color: #34495e;
 }
 
-%clearfix {
-  &:after {
-    clear: both;
-    content: "";
-    display: table;
-  }
-  &:before {
-    content: "";
-    display: table;
-  }
-}
-
-@mixin chk($color, $content) {
-  &:before {
-    position: absolute;
-    z-index: 399;
-    bottom: 0;
-    right: 0;
-    content: "";
-    height: 0;
-    width: 0;
-    border: 35px solid;
-    border-color: transparent lighten($color, 7%) lighten($color, 7%) transparent;
-  }
-  &:after {
-    line-height: 1.4;
-    position: absolute;
-    z-index: 499;
-    font-family: 'fontawesome';
-    content: $content;
-    bottom: 0;
-    right: 7px;
-    font-size: 1.9em;
-    color: $color;
-  }
-}
-
 .item-incorrect {
-  background-color: darken(#FFF, 2%);
-  @include chk(#BF0A30, "\f00d");
+  /* background-color: darken(#FFF, 2%); */
+}
+
+.item-incorrect:before {
+  position: absolute;
+  z-index: 399;
+  bottom: 0;
+  right: 0;
+  content: "";
+  height: 0;
+  width: 0;
+  border: 16px solid;
+  border-color: #BF0A30 #BF0A30 #BF0A30 white;
+}
+
+.item-incorrect:after {
+  line-height: 1.3;
+  position: absolute;
+  z-index: 499;
+  font-family: 'fontawesome';
+  content: "\f00d";
+  bottom: 0;
+  right: 27px;
+  font-size: 1.9em;
+  color: #BF0A30;
 }
 
 .item-correct {
-  @include chk(#007fbe, "\f00c");
+  /* @include chk(#007fbe, "\f00c"); */
+}
+
+.item-correct:before {
+  position: absolute;
+  z-index: 399;
+  bottom: 0;
+  right: 0;
+  content: "";
+  height: 0;
+  width: 0;
+  border: 16px solid;
+  border-color: #007fbe #007fbe #007fbe white;
+}
+
+.item-correct:after {
+  line-height: 1.3;
+  position: absolute;
+  z-index: 499;
+  font-family: 'fontawesome';
+  content: "\f00c";
+  bottom: 0;
+  right: 27px;
+  font-size: 1.9em;
+  color: #007fbe;
 }
 
 .quizTitle {
@@ -97,6 +107,7 @@ body {
 }
 
 label.answers {
+  position: relative;
   display: block;
   padding: 6px;
   border-radius: 6px;
@@ -104,6 +115,15 @@ label.answers {
   font-weight: 400;
   font-size: 13px;
   cursor: pointer;
+}
+
+.question-validation {
+  background-color: #BF0A30;
+  color: #FFF;
+  padding: 8px 30px;
+  font-weight: 300;
+  margin: 0 -20px 10px;
+  position: relative;
 }
 
 p.answers {
@@ -169,11 +189,17 @@ input.normal-btn:not([disabled]):hover {
   color: #FFF;
 }
 
+
+/* Popover Header */
+
 .popover-title {
   background-color: #BF0A30;
   color: #FFFFFF;
   text-align: center;
 }
+
+
+/* Popover Body */
 
 .popover-content {
   background-color: white;
