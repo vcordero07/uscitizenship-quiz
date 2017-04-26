@@ -131,23 +131,41 @@ let questionDisplay = () => {
 
 let resultsDisplay = () => {
   $('.result-msg').empty();
+
+
   for (let i = 0; i < numOfQuestion; i++) {
-    //     let resultsHTML = `<button class="accordion">
-    //                       ${quizAppData[i].question}
-    //                       </button>
-    //                       <div class="panel">
-    //                       <p>${quizAppData[i].answers[quizAppData[i].userAnswer]}</p>
-    //                       </div>`;
-    let resultsHTML = `<h4>${quizAppData[i].question}</h4>
-     <div>
-     <p class='answers'>${quizAppData[i].answers[quizAppData[i].userAnswer]}</p>
-     </div>`;
+    let userAnswer = quizAppData[i].userAnswer;
+    let correctAnswer = quizAppData[i].correctAnswer;
+
+    if (userAnswer !== correctAnswer) {
+      let resultsHTML = `
+        <div class="ansIncorrect">
+        <h4>${quizAppData[i].question}</h4>
+        <div class="ansStute"></div>
+        <div>
+        <p class='answers'><strong>Your Answer: </strong>${quizAppData[i].answers[quizAppData[i].userAnswer]}</p>
+        <p class='answers'><strong>Correct Answer: </strong>${quizAppData[i].answers[quizAppData[i].correctAnswer]}</p>
+        </div>
+        </div>`;
+
+      $('.result-msg').append(resultsHTML);
+    } else {
+      let resultsHTML = `
+        <div class="ansCorrect">
+        <h4>${quizAppData[i].question}</h4>
+        <div class="ansStute"></div>
+        <div>
+        <p class='answers'><strong>Correct Answer: </strong>${quizAppData[i].answers[quizAppData[i].userAnswer]}</p>
+        </div>
+        </div>`;
+
+      $('.result-msg').append(resultsHTML);
+    }
 
 
-    $('.result-msg').append(resultsHTML);
-    //$('#accordion').accordion();
+
   }
-  //$('#finalscore').accordion();
+
   $('#accordion').accordion({
     collapsible: true,
     heightStyle: "content"

@@ -203,20 +203,64 @@ input.normal-btn:not([disabled]):hover {
   color: #FFF;
 }
 
-
-/* Popover Header */
-
 .popover-title {
   background-color: #BF0A30;
   color: #FFFFFF;
   text-align: center;
 }
 
-
-/* Popover Body */
-
 .popover-content {
   background-color: white;
   color: #BF0A30;
   padding: 10px;
+}
+
+div.ansIncorrect {
+  background-color: #FFEFFF;
+  border-color: #fae1e1;
+  margin: 0 0 6px;
+  border: solid 1px #e3e3e3;
+  padding: 5px 20px;
+  border-radius: 5px;
+  position: relative;
+}
+
+div.ansIncorrect .ansStute {
+  background-color: #BF0A30;
+  position: absolute;
+  left: 0;
+  top: -1px;
+  bottom: -1px;
+  color: #FFF;
+  font-weight: 500;
+  padding: 0;
+  width: 6px;
+  border-radius: 5px 0 0 5px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+div.ansCorrect {
+  background-color: #E5FFFF;
+  border-color: #e2f8cf;
+  margin: 0 0 6px;
+  border: solid 1px #e3e3e3;
+  padding: 5px 20px;
+  border-radius: 5px;
+  position: relative;
+}
+
+div.ansCorrect .ansStute {
+  background-color: #007fbe;
+  position: absolute;
+  left: 0;
+  top: -1px;
+  bottom: -1px;
+  color: #FFF;
+  font-weight: 500;
+  padding: 0;
+  width: 6px;
+  border-radius: 5px 0 0 5px;
 }
