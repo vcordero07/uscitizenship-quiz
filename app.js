@@ -182,11 +182,6 @@ let getAnswers = () => {
     userAnswer,
     correctAnswer
   };
-
-  //       return {
-  //           userAnswer: userAnswer,
-  //           correctAnswer: correctAnswer
-  //       };
 };
 
 let handleAnswersValidation = () => {
@@ -195,11 +190,6 @@ let handleAnswersValidation = () => {
     correctAnswer,
     userAnswer
   } = getAnswers();
-  // same as:
-  // const answers = getAnswers();
-  // const correctAnswer = answers.correctAnswer;
-  //const userAnswer = answers.userAnswer;
-
 
   if (isNaN(userAnswer)) {
     //console.log('userAnswer isNan: ' + isNaN(userAnswer))
@@ -208,12 +198,10 @@ let handleAnswersValidation = () => {
 
     if (userAnswer !== correctAnswer) {
       $("input[class='option']:checked").parent().css("border", "2px solid #BF0A30").addClass('item-incorrect');
-      //$("input[class='option']:checked").parent();
 
       $('input.option').filter(function() {
         return Number($(this).val()) === correctAnswer;
       }).parent().css("border", "2px solid #007fbe").addClass('item-correct');
-
 
     } else {
       if (!quizAppData[currentQuestion].userAnswer) {
@@ -225,7 +213,6 @@ let handleAnswersValidation = () => {
       }).parent().css("border", "2px solid #007fbe").addClass('item-correct');
     }
     quizAppData[currentQuestion].userAnswer = userAnswer;
-
 
   }
 
@@ -239,7 +226,6 @@ let handleClickNext = () => {
   } = getAnswers();
 
   if (isNaN(userAnswer)) {
-    //$('.modal').modal('toggle');
     $('#next-button').popover({
       html: true,
       title: 'Error:',
@@ -253,7 +239,6 @@ let handleClickNext = () => {
     $('next-button').popover('destroy');
 
     if ((currentQuestion + 1) === numOfQuestion) {
-
       $('.final-score').text('Your Final Score is: ' + numOfCorrectAnswers + '/' + numOfQuestion);
       resultsDisplay();
 
@@ -263,8 +248,6 @@ let handleClickNext = () => {
     } else {
       currentQuestion++;
     }
-
-
     questionDisplay();
   }
 };
