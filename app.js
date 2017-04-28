@@ -99,8 +99,34 @@ let quizAppData = [
   }
 ];
 
+// const getCorrectAnswerIndex = (answers, correctAnswer) => {
+//   if (!correctAnswer) {
+//     return null;
+//   }
+//
+//   return answers.indexOf(correctAnswer);
+// };
+//
+// const getQuizAppQuestions = questions => {
+//   return questions.map(question => {
+//     const shuffledAnswers = _.shuffle(question.answers);
+//
+//     return {
+//       question: question.question,
+//       answers: shuffledAnswers,
+//       correctAnswerString: question.correctAnswerString,
+//       correctAnswer: getCorrectAnswerIndex(
+//         shuffledAnswers,
+//         question.correctAnswerString
+//       ) !== null ? getCorrectAnswerIndex(shuffledAnswers, question.correctAnswerString) : question.correctAnswer,
+//       userAnswer: null
+//     };
+//   });
+// };
+
 //add remaining 90 questions, then do an array shuffle and pick 10
 
+//let quizAppData = getQuizAppQuestions(_.shuffle(quizAppQuestions));
 let currentQuestion = 0;
 let numOfQuestion = quizAppData.length;
 let numOfCorrectAnswers = 0;
