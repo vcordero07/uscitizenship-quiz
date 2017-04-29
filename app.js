@@ -135,8 +135,126 @@ let quizAppQuestions = [
     correctAnswerString: "George Washington",
     correctAnswer: 1,
     userAnswer: null
+  },
+  //question11:
+  {
+    question: "What is the supreme law of the land?",
+    answers: [
+      "the Constitution",
+      "the American Flag",
+      "the Supreme Court",
+      "the Bill of Rights"
+    ],
+    correctAnswerString: "the Constitution",
+    correctAnswer: 0,
+    userAnswer: null
+  },
+  //question12:
+  {
+    question: "Who is in charge of the executive branch?",
+    answers: [
+      "the Secretary of the Treasury",
+      "the President",
+      "the Supreme Court",
+      "the Secretary of State"
+    ],
+    correctAnswerString: "the President",
+    correctAnswer: 1,
+    userAnswer: null
+  },
+  //question13:
+  {
+    question: "How many amendments does the Constitution have?",
+    answers: [
+      "26",
+      "27",
+      "28",
+      "29"
+    ],
+    correctAnswerString: "27",
+    correctAnswer: 1,
+    userAnswer: null
+  },
+  //question14:
+  {
+    question: "What do we call the first ten amendments to the Constitution?",
+    answers: [
+      "the Bill of Rights",
+      "the Bill of Laws",
+      "the Bill of Life",
+      "the Bill of Congress"
+    ],
+    correctAnswerString: "the Bill of Rights",
+    correctAnswer: 0,
+    userAnswer: null
+  },
+  //question15:
+  {
+    question: "When do we celebrate Independence Day?",
+    answers: [
+      "May 4",
+      "June 4",
+      "July 4",
+      "September 4"
+    ],
+    correctAnswerString: "July 4",
+    correctAnswer: 1,
+    userAnswer: null
+  },
+  //question16:
+  {
+    question: "Name two national U.S. holidays.",
+    answers: [
+      "Memorial Day & Independence Day",
+      "Labor Day & Black Friday",
+      "Columbus Day & Easter",
+      "Thanksgiving & Halloween"
+    ],
+    correctAnswerString: "Memorial Day & Independence Day",
+    correctAnswer: 0,
+    userAnswer: null
+  },
+  //question18:
+  {
+    question: "Why does the flag have 13 stripes?",
+    answers: [
+      "because there were 13 original colonies",
+      "because there were 13 original cities",
+      "because there were 13 original counties",
+      "because there were 13 original roads"
+    ],
+    correctAnswerString: "because there were 13 original colonies",
+    correctAnswer: 0,
+    userAnswer: null
+  },
+  //question17:
+  {
+    question: "Where is the Statue of Liberty?",
+    answers: [
+      "Liberty Island",
+      "Manhattan",
+      "Long Island",
+      "Brooklyn"
+    ],
+    correctAnswerString: "Liberty Island",
+    correctAnswer: 0,
+    userAnswer: null
+  },
+  //question19:
+  {
+    question: "Why does the flag have 50 stars?",
+    answers: [
+      "because there is one star for each state",
+      "because there is one star for each colonies",
+      "because there is one star for each street",
+      "because there is one star for each senator"
+    ],
+    correctAnswerString: "because there is one star for each state",
+    correctAnswer: 0,
+    userAnswer: null
   }
 ];
+
 
 const getCorrectAnswerIndex = (answers, correctAnswer) => {
   if (!correctAnswer) {
@@ -170,8 +288,6 @@ function getNumberOfCorrectAnswers() {
   //   //of questions where the user has input a correct userAnswer
 
   quizAppData.forEach(function(ele) {
-    //     console.log(ele);
-    //     console.log(ele.userAnswer);
     if (ele.userAnswer === ele.correctAnswer) {
       numberOfCorrectAnswers++
     }
@@ -183,10 +299,12 @@ function getNumberOfCorrectAnswers() {
 
 let quizAppData = getQuizAppQuestions(_.shuffle(quizAppQuestions));
 let currentQuestion = 0;
-let numOfQuestion = quizAppData.length;
+// let numOfQuestion = quizAppData.length;
+let numOfQuestion = 10;
 //let numOfCorrectAnswers = 0;
 
 let questionDisplay = () => {
+  console.log(quizAppData);
   $("#question").text(quizAppData[currentQuestion].question);
 
   $("#answers").empty();
@@ -206,7 +324,7 @@ let questionDisplay = () => {
   //console.log(getNumberOfCorrectAnswers());
   const numOfCorrectAnswers = getNumberOfCorrectAnswers();
 
-  $(".status").text("Question: " + currentQuestion + "/" + numOfQuestion);
+  $(".status").text("Question: " + (currentQuestion + 1) + "/" + numOfQuestion);
   $(".score").text("Score: " + numOfCorrectAnswers + "/" + numOfQuestion);
   console.log('numOfCorrectAnswers: ' + numOfCorrectAnswers);
 };
