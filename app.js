@@ -1,9 +1,19 @@
 console.clear();
-const classes = {
-  correctMSG: ['Aye Captain', 'Indubitably', 'OK', 'Sure', 'Oh Yeah', 'Yay'],
-  incorrectMSG: ['Uh-uh', 'Nope', 'No way, Jose', 'No Siree', 'Strike', 'Negative']
-}
+//04-25-17
+//counter is not working in local version
+//need to random questions or shuffle them
+//need to random answers or shuffle them
+//need to add remaining 90 questions
+//need to delete useranswers when click try again
+//need to add uncle sam logo
+//need to add 30 second timer for each question
+//need to add a share button at the end of the results
+//need to look for alternative font for title
 
+const classes = {
+  correctMSG: ["Aye Captain", "Indubitably", "OK", "Sure", "Oh Yeah", "Yay"],
+  incorrectMSG: ["Uh-uh", "Nope", "No way, Jose", "No Siree", "Strike", "Negative"]
+};
 
 //get random key message work
 Array.prototype.randomMSG = function() {
@@ -16,131 +26,176 @@ Array.prototype.randomMSG = function() {
 // };
 
 
-
-let quizAppData = [
+let quizAppQuestions = [
   //question1:
   {
-    question: 'Name one state that borders Mexico.',
-    answers: ['Florida', 'Arizona', 'Louisiana', 'Nevada'],
+    question: "Name one state that borders Mexico.",
+    answers: ["Florida", "Arizona", "Louisiana", "Nevada"],
+    correctAnswerString: "Arizona",
     correctAnswer: 1,
     userAnswer: null
   },
 
   //question2:
   {
-    question: 'Name one state that borders Canada.',
-    answers: ['Iowa', 'South Dakota', 'Montana', 'Massachusetts'],
+    question: "Name one state that borders Canada.",
+    answers: ["Iowa", "South Dakota", "Montana", "Massachusetts"],
+    correctAnswerString: "Montana",
     correctAnswer: 2,
     userAnswer: null
   },
 
   //question3:
   {
-    question: 'Name one American Indian tribe in the United States.',
-    answers: ['Indians', 'RedSkins', 'Blackhawks', 'Cherokee'],
+    question: "Name one American Indian tribe in the United States.",
+    answers: ["Indians", "RedSkins", "Blackhawks", "Cherokee"],
+    correctAnswerString: "Cherokee",
     correctAnswer: 3,
     userAnswer: null
   },
 
   //question4:
   {
-    question: 'Who did the United States fight in World War II?',
-    answers: ['Japan, Germany, and Italy', 'Germany, Russia, and France', 'Japan, Russia, and Germany', 'Japan, Spain, and Germany'],
+    question: "Who did the United States fight in World War II?",
+    answers: [
+      "Japan, Germany, and Italy",
+      "Germany, Russia, and France",
+      "Japan, Russia, and Germany",
+      "Japan, Spain, and Germany"
+    ],
+    correctAnswerString: "Japan, Germany, and Italy",
     correctAnswer: 0,
     userAnswer: null
   },
 
   //question5:
   {
-    question: 'Who was President during World War I?',
-    answers: ['Franklin Roosevelt', 'George Washington', 'James Madison', 'Woodrow Wilson'],
+    question: "Who was President during World War I?",
+    answers: [
+      "Franklin Roosevelt",
+      "George Washington",
+      "James Madison",
+      "Woodrow Wilson"
+    ],
+    correctAnswerString: "Woodrow Wilson",
     correctAnswer: 3,
     userAnswer: null
   },
 
   //question6:
   {
-    question: 'When was the Constitution written?',
-    answers: ['1877', '1787', '1767', '1897'],
+    question: "When was the Constitution written?",
+    answers: ["1877", "1787", "1767", "1897"],
+    correctAnswerString: "1787",
     correctAnswer: 1,
     userAnswer: null
   },
 
   //question7:
   {
-    question: 'Who wrote the Declaration of Independence?',
-    answers: ['Franklin Roosevelt', 'George Washington', 'Benjamin Franklin', 'Thomas Jefferson'],
+    question: "Who wrote the Declaration of Independence?",
+    answers: [
+      "Franklin Roosevelt",
+      "George Washington",
+      "Benjamin Franklin",
+      "Thomas Jefferson"
+    ],
+    correctAnswerString: "Thomas Jefferson",
     correctAnswer: 3,
     userAnswer: null
   },
 
   //question8:
   {
-    question: 'We elect a U.S. Senator for how many years?',
-    answers: ['ten (10)', 'two (2)', 'six (6)', 'eight (8)'],
+    question: "We elect a U.S. Senator for how many years?",
+    answers: ["ten (10)", "two (2)", "six (6)", "eight (8)"],
+    correctAnswerString: "six (6)",
     correctAnswer: 2,
     userAnswer: null
   },
 
   //question9:
   {
-    question: 'When is the last day you can send in federal income tax forms?',
-    answers: ['May 15', 'July 15', 'March 15', 'April 15'],
+    question: "When is the last day you can send in federal income tax forms?",
+    answers: ["May 15", "July 15", "March 15", "April 15"],
+    correctAnswerString: "April 15",
     correctAnswer: 3,
     userAnswer: null
   },
 
   //question10:
   {
-    question: 'Who was the first President?',
-    answers: ['Abraham Lincoln', 'George Washington', 'John Adams', 'Thomas Jefferson'],
+    question: "Who was the first President?",
+    answers: [
+      "Abraham Lincoln",
+      "George Washington",
+      "John Adams",
+      "Thomas Jefferson"
+    ],
+    correctAnswerString: "George Washington",
     correctAnswer: 1,
     userAnswer: null
   }
 ];
 
-// const getCorrectAnswerIndex = (answers, correctAnswer) => {
-//   if (!correctAnswer) {
-//     return null;
-//   }
-//
-//   return answers.indexOf(correctAnswer);
-// };
-//
-// const getQuizAppQuestions = questions => {
-//   return questions.map(question => {
-//     const shuffledAnswers = _.shuffle(question.answers);
-//
-//     return {
-//       question: question.question,
-//       answers: shuffledAnswers,
-//       correctAnswerString: question.correctAnswerString,
-//       correctAnswer: getCorrectAnswerIndex(
-//         shuffledAnswers,
-//         question.correctAnswerString
-//       ) !== null ? getCorrectAnswerIndex(shuffledAnswers, question.correctAnswerString) : question.correctAnswer,
-//       userAnswer: null
-//     };
-//   });
-// };
+const getCorrectAnswerIndex = (answers, correctAnswer) => {
+  if (!correctAnswer) {
+    return null;
+  }
+
+  return answers.indexOf(correctAnswer);
+};
+
+const getQuizAppQuestions = questions => {
+  return questions.map(question => {
+    const shuffledAnswers = _.shuffle(question.answers);
+
+    return {
+      question: question.question,
+      answers: shuffledAnswers,
+      correctAnswerString: question.correctAnswerString,
+      correctAnswer: getCorrectAnswerIndex(
+        shuffledAnswers,
+        question.correctAnswerString
+      ) !== null ? getCorrectAnswerIndex(shuffledAnswers, question.correctAnswerString) : question.correctAnswer,
+      userAnswer: null
+    };
+  });
+};
+
+
+function getNumberOfCorrectAnswers() {
+  let numberOfCorrectAnswers = 0;
+  //   // numberOfCorrectAnswers should equal the total number
+  //   //of questions where the user has input a correct userAnswer
+
+  quizAppData.forEach(function(ele) {
+    //     console.log(ele);
+    //     console.log(ele.userAnswer);
+    if (ele.userAnswer === ele.correctAnswer) {
+      numberOfCorrectAnswers++
+    }
+  });
+  return numberOfCorrectAnswers;
+}
 
 //add remaining 90 questions, then do an array shuffle and pick 10
 
-//let quizAppData = getQuizAppQuestions(_.shuffle(quizAppQuestions));
+let quizAppData = getQuizAppQuestions(_.shuffle(quizAppQuestions));
 let currentQuestion = 0;
 let numOfQuestion = quizAppData.length;
-let numOfCorrectAnswers = 0;
+//let numOfCorrectAnswers = 0;
 
 let questionDisplay = () => {
-  $('#question').text(quizAppData[currentQuestion].question);
+  $("#question").text(quizAppData[currentQuestion].question);
 
-  $('#answers').empty();
+  $("#answers").empty();
 
   let numberOfAnswers = quizAppData[currentQuestion].answers.length;
 
   for (let i = 0; i < numberOfAnswers; i++) {
     let answersHTML = `<label class='answers'><input type='radio' class='option' name='option' value='${i}'> ${quizAppData[currentQuestion].answers[i]} </label><br>`;
-    $('#answers').append(answersHTML);
+    $("#answers").append(answersHTML);
   }
 
   if (currentQuestion === 0) {
@@ -148,16 +203,16 @@ let questionDisplay = () => {
   } else {
     $("#back-button").prop("disabled", false);
   }
+  //console.log(getNumberOfCorrectAnswers());
+  const numOfCorrectAnswers = getNumberOfCorrectAnswers();
 
-  $('.status').text('Question: ' + currentQuestion + '/' + numOfQuestion);
-  $('.score').text('Score: ' + numOfCorrectAnswers + '/' + numOfQuestion);
+  $(".status").text("Question: " + currentQuestion + "/" + numOfQuestion);
+  $(".score").text("Score: " + numOfCorrectAnswers + "/" + numOfQuestion);
   console.log('numOfCorrectAnswers: ' + numOfCorrectAnswers);
 };
 
-
 let resultsDisplay = () => {
-  $('.result-msg').empty();
-
+  $(".result-msg").empty();
 
   for (let i = 0; i < numOfQuestion; i++) {
     let userAnswer = quizAppData[i].userAnswer;
@@ -165,39 +220,36 @@ let resultsDisplay = () => {
 
     if (userAnswer !== correctAnswer) {
       let resultsHTML = `
-        <div class="ansIncorrect">
-        <h4>${quizAppData[i].question}</h4>
-        <div class="ansStute"></div>
-        <div>
-        <p class='answers'><strong>Your Answer: </strong>${quizAppData[i].answers[quizAppData[i].userAnswer]}</p>
-        <p class='answers'><strong>Correct Answer: </strong>${quizAppData[i].answers[quizAppData[i].correctAnswer]}</p>
-        </div>
-        </div>`;
+<div class="ansIncorrect">
+<h4>${quizAppData[i].question}</h4>
+<div class="ansStute"></div>
+<div>
+<p class='answers'><strong>Your Answer: </strong>${quizAppData[i].answers[quizAppData[i].userAnswer]}</p>
+<p class='answers'><strong>Correct Answer: </strong>${quizAppData[i].correctAnswerString}</p>
+</div>
+</div>`;
+      // <p class='answers'><strong>Correct Answer: </strong>${quizAppData[i].answers[quizAppData[i].correctAnswer]}</p>
 
-      $('.result-msg').append(resultsHTML);
+
+      $(".result-msg").append(resultsHTML);
     } else {
       let resultsHTML = `
-        <div class="ansCorrect">
-        <h4>${quizAppData[i].question}</h4>
-        <div class="ansStute"></div>
-        <div>
-        <p class='answers'><strong>Correct Answer: </strong>${quizAppData[i].answers[quizAppData[i].userAnswer]}</p>
-        </div>
-        </div>`;
+<div class="ansCorrect">
+<h4>${quizAppData[i].question}</h4>
+<div class="ansStute"></div>
+<div>
+<p class='answers'><strong>Correct Answer: </strong>${quizAppData[i].answers[quizAppData[i].userAnswer]}</p>
+</div>
+</div>`;
 
-      $('.result-msg').append(resultsHTML);
+      $(".result-msg").append(resultsHTML);
     }
-
-
-
   }
 
-  $('#accordion').accordion({
+  $("#accordion").accordion({
     collapsible: true,
     heightStyle: "content"
-
   });
-
 };
 
 let getAnswers = () => {
@@ -208,10 +260,10 @@ let getAnswers = () => {
     userAnswer,
     correctAnswer
   };
+
 };
 
 let handleAnswersValidation = () => {
-
   const {
     correctAnswer,
     userAnswer
@@ -220,60 +272,69 @@ let handleAnswersValidation = () => {
   if (isNaN(userAnswer)) {
     //console.log('userAnswer isNan: ' + isNaN(userAnswer))
   } else {
-    $('.option').prop('disabled', !this.checked);
+    $(".option").prop("disabled", !this.checked);
 
     if (userAnswer !== correctAnswer) {
-      $("input[class='option']:checked").parent().css("border", "2px solid #BF0A30").addClass('item-incorrect');
+      $("input[class='option']:checked")
+        .parent()
+        .css("border", "2px solid #BF0A30")
+        .addClass("item-incorrect");
+      //$("input[class='option']:checked").parent();
 
-      $('input.option').filter(function() {
-        return Number($(this).val()) === correctAnswer;
-      }).parent().css("border", "2px solid #007fbe").addClass('item-correct');
-
+      $("input.option")
+        .filter(function() {
+          return Number($(this).val()) === correctAnswer;
+        })
+        .parent()
+        .css("border", "2px solid #007fbe")
+        .addClass("item-correct");
     } else {
-      if (!quizAppData[currentQuestion].userAnswer) {
-        numOfCorrectAnswers++;
-      }
-
-      $('input.option').filter(function() {
-        return Number($(this).val()) === correctAnswer;
-      }).parent().css("border", "2px solid #007fbe").addClass('item-correct');
+      //numOfCorrectAnswers++
+      $("input.option")
+        .filter(function() {
+          return Number($(this).val()) === correctAnswer;
+        })
+        .parent()
+        .css("border", "2px solid #007fbe")
+        .addClass("item-correct");
     }
     quizAppData[currentQuestion].userAnswer = userAnswer;
-
   }
-
 };
-
 
 let handleClickNext = () => {
   const {
     correctAnswer,
     userAnswer
   } = getAnswers();
-
+  const numOfCorrectAnswers = getNumberOfCorrectAnswers();
   if (isNaN(userAnswer)) {
-    $('#next-button').popover({
+    //$('.modal').modal('toggle');
+    $("#next-button").popover({
       html: true,
-      title: 'Error:',
+      title: "Error:",
       animation: true,
       //       'trigger': 'hover',
-      placement: 'right',
-      content: 'Please select an answer.'
+      placement: "right",
+      content: "Please select an answer."
     });
-
   } else {
-    $('next-button').popover('destroy');
-
-    if ((currentQuestion + 1) === numOfQuestion) {
-      $('.final-score').text('Your Final Score is: ' + numOfCorrectAnswers + '/' + numOfQuestion);
+    $("next-button").popover("destroy");
+    console.log('numOfQuestion: ', numOfQuestion);
+    console.log(currentQuestion);
+    if (currentQuestion + 1 === numOfQuestion) {
+      $(".final-score").text(
+        "Your Final Score is: " + numOfCorrectAnswers + "/" + numOfQuestion
+      );
       resultsDisplay();
 
-      $('.quiz-section').hide();
-      $('.start-section').hide();
-      $('.result-section').show();
+      $(".quiz-section").hide();
+      $(".start-section").hide();
+      $(".result-section").show();
     } else {
       currentQuestion++;
     }
+
     questionDisplay();
   }
 };
@@ -288,9 +349,9 @@ let handleClickBack = () => {
 };
 
 let handleClickTryAgain = () => {
-  $('.start-section').show();
-  $('.quiz-section').hide();
-  $('.result-section').hide();
+  $(".start-section").show();
+  $(".quiz-section").hide();
+  $(".result-section").hide();
   //todo
   //clear user data
   //$('.result_msg').empty();
@@ -300,43 +361,40 @@ let handleClickTryAgain = () => {
 };
 
 let handleClickStart = () => {
-  $('.result-section').hide();
-  $('.start-section').hide();
-  $('.quiz-section').show();
+  $(".result-section").hide();
+  $(".start-section").hide();
+  $(".quiz-section").show();
 
   questionDisplay();
-}
-
+};
 
 let createEventListeners = () => {
-  $('#startBtn').on('click', () => {
+  $("#startBtn").on("click", () => {
     handleClickStart();
   });
 
-  $('.nav-button').on('click', '#back-button', () => {
+  $(".nav-button").on("click", "#back-button", () => {
     handleClickBack();
-  })
+  });
 
-  $('.result-section').on('click', '#try-again', () => {
+  $(".result-section").on("click", "#try-again", () => {
     handleClickTryAgain();
   });
 
-  $('.radio').on('click', () => {
+  $(".radio").on("click", () => {
     handleAnswersValidation();
   });
 
-  $('.nav-button').on('click', '#next-button', () => {
+  $(".nav-button").on("click", "#next-button", () => {
     handleClickNext();
   });
-
 };
 
 const renderQuiz = () => {
-
-  $('.quiz-section').hide();
-  $('.result-section').hide();
+  $(".quiz-section").hide();
+  $(".result-section").hide();
 
   createEventListeners();
-}
+};
 
 $(renderQuiz);
