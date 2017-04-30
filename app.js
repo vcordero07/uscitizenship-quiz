@@ -1,14 +1,10 @@
 console.clear();
-//04-25-17
-//counter is not working in local version
-//need to random questions or shuffle them
-//need to random answers or shuffle them
+//04-29-17
 //need to add remaining 90 questions
 //need to delete useranswers when click try again
 //need to add uncle sam logo
 //need to add 30 second timer for each question
 //need to add a share button at the end of the results
-//need to look for alternative font for title
 
 const classes = {
   correctMSG: ["Aye Captain", "Indubitably", "OK", "Sure", "Oh Yeah", "Yay"],
