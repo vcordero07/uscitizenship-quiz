@@ -35,16 +35,18 @@
 
     </div>
     </div>
-    <div class="nav-status-bar">
+    <div class="row nav-status-bar">
       <div class="nav-row">
         <div class="status-score">
-          <span class="status">Question: 1/10</span>
-          <span class="score">Score: 1/10</span>
+          <div class="col-3"><span class="status">Question: 1/10</span></div>
+          <div class="col-3"><span class="score">Score: 1/10</span></div>
         </div>
 
         <div class="nav-button">
-          <input type='button' value='Back' id='back-button' class="btn btn-default classic-btn normal-btn"></input>
-          <input type='button' value='Next' id='next-button' class="btn btn-default classic-btn normal-btn"></input>
+          <div class="col-3"><input type='button' value='Back' id='back-button' class="btn btn-default classic-btn normal-btn"></input>
+          </div>
+          <div class="col-3"><input type='button' value='Next' id='next-button' class="btn btn-default classic-btn normal-btn"></input>
+          </div>
         </div>
       </div>
     </div>
@@ -58,6 +60,8 @@
     </div>
     <input type='button' value='Try Again' id='try-again' class='classic-btn normal-btn btn btn-default try-again'></input>
   </section>
+
+
 
 
   <script src="https://code.jquery.com/jquery.min.js"></script>
