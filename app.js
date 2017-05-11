@@ -1,27 +1,19 @@
 console.clear();
-//04-30-17
-//need to add remaining 90 questions
-//need to delete useranswers when click try again
+//05-10-17
+//need to add remaining questions
 //need to add uncle sam logo
 //need to add 30 second timer for each question
 //need to add a share button at the end of the results
 
-
 const classes = {
   correctMSG: ["Aye Captain", "Indubitably", "OK", "Sure", "Oh Yeah", "Yay"],
-  incorrectMSG: ["Uh-uh", "Nope", "No way, Jose", "No Siree", "Strike", "Negative"]
+  incorrectMSG: ["Uh-uh", "Nope", "Stop", "No Siree", "Strike", "Negative"]
 };
 
 //get random key message work
 Array.prototype.randomMSG = function() {
   return this[Math.floor(Math.random() * this.length)];
 };
-
-// let findCorrectAnswer = (asnwer) => {
-//    //    correctMSG: `${classes.correctMSG.randomMSG()}, that is the correct Answer!`,
-//   //  incorrectMSG: `${classes.incorrectMSG.randomMSG()}, the correct Answer is ${quizAppData[0].answers[1]}.`
-// };
-
 
 let quizAppQuestions = [
 
@@ -330,8 +322,6 @@ const getQuizAppQuestions = questions => {
 
 function getNumberOfCorrectAnswers() {
   let numberOfCorrectAnswers = 0;
-  //   // numberOfCorrectAnswers should equal the total number
-  //   //of questions where the user has input a correct userAnswer
 
   quizAppData.forEach(function(ele) {
     if (ele.userAnswer === ele.correctAnswer) {
@@ -341,13 +331,16 @@ function getNumberOfCorrectAnswers() {
   return numberOfCorrectAnswers;
 }
 
-//add remaining 90 questions, then do an array shuffle and pick 10
-
 let quizAppData = getQuizAppQuestions(_.shuffle(quizAppQuestions));
 let currentQuestion = 0;
-// let numOfQuestion = quizAppData.length;
 let numOfQuestion = 10;
-//let numOfCorrectAnswers = 0;
+
+let deleteUserAnswers = () => {
+  quizAppData.forEach(function(ele) {
+    ele.userAnswer = null;
+  })
+};
+
 
 let questionDisplay = () => {
   console.log(quizAppData);
@@ -367,7 +360,7 @@ let questionDisplay = () => {
   } else {
     $("#back-button").prop("disabled", false);
   }
-  //console.log(getNumberOfCorrectAnswers());
+
   const numOfCorrectAnswers = getNumberOfCorrectAnswers();
 
   $(".status").text("Question: " + (currentQuestion + 1) + "/" + numOfQuestion);
@@ -392,8 +385,6 @@ let resultsDisplay = () => {
 <p class='answers'><strong>Correct Answer: </strong>${quizAppData[i].correctAnswerString}</p>
 </div>
 </div>`;
-      // <p class='answers'><strong>Correct Answer: </strong>${quizAppData[i].answers[quizAppData[i].correctAnswer]}</p>
-
 
       $(".result-msg").append(resultsHTML);
     } else {
@@ -434,7 +425,7 @@ let handleAnswersValidation = () => {
   } = getAnswers();
 
   if (isNaN(userAnswer)) {
-    //console.log('userAnswer isNan: ' + isNaN(userAnswer))
+
   } else {
     $(".option").prop("disabled", !this.checked);
 
@@ -443,7 +434,6 @@ let handleAnswersValidation = () => {
         .parent()
         .css("border", "2px solid #BF0A30")
         .addClass("item-incorrect");
-      //$("input[class='option']:checked").parent();
 
       $("input.option")
         .filter(function() {
@@ -473,7 +463,7 @@ let handleClickNext = () => {
   } = getAnswers();
   const numOfCorrectAnswers = getNumberOfCorrectAnswers();
   if (isNaN(userAnswer)) {
-    //$('.modal').modal('toggle');
+
     $("#next-button").popover({
       html: true,
       title: "Error:",
@@ -484,9 +474,20 @@ let handleClickNext = () => {
     });
   } else {
     $("next-button").popover("destroy");
-    console.log('numOfQuestion: ', numOfQuestion);
-    console.log(currentQuestion);
+    // console.log('numOfQuestion: ', numOfQuestion);
+    // console.log(currentQuestion);
     if (currentQuestion + 1 === numOfQuestion) {
+      if (numOfCorrectAnswers === 10) {
+        $('.txt-results').text(`Excellent, you pass! You are a true Patriot!!!`).parent().addClass('passContainer'); //
+      } else if (numOfCorrectAnswers >= 6 && numOfCorrectAnswers < 10) {
+        $('.txt-results').text(`${classes.correctMSG.randomMSG()}, you pass!!!`).parent().addClass('passContainer'); //
+      } else if (numOfCorrectAnswers >= 2 && numOfCorrectAnswers < 6) {
+        $('.txt-results').text(`${classes.incorrectMSG.randomMSG()}, you failed! Please try again.`).parent().addClass('failContainer'); //
+      } else {
+        $('.txt-results').text(`FAILED! Where are you from again?`).parent().addClass('failContainer'); //
+      }
+
+
       $(".final-score").text(
         "Your Final Score is: " + numOfCorrectAnswers + "/" + numOfQuestion
       );
@@ -516,12 +517,10 @@ let handleClickTryAgain = () => {
   $(".start-section").show();
   $(".quiz-section").hide();
   $(".result-section").hide();
-  //todo
-  //clear user data
-  //$('.result_msg').empty();
-
   currentQuestion = 0;
   numOfCorrectAnswers = 0;
+
+  deleteUserAnswers();
 };
 
 let handleClickStart = () => {
