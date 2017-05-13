@@ -30,6 +30,45 @@ let quizAppQuestions = [
     correctAnswer: 0,
     userAnswer: null
   },
+  //question2:
+  {
+    question: "What does the Constitution do?",
+    answers: [
+      "defines the government", //sets up the government, protects basic rights of Americans
+      "protects the President",
+      "defines the National Anthem",
+      "defines the American Religion"
+    ],
+    correctAnswerString: "defines the government",
+    correctAnswer: 0,
+    userAnswer: null
+  },
+  //question3:
+  {
+    question: "The idea of self-government is in the first three words of the Constitution. What are these words?",
+    answers: [
+      "We the People",
+      "We the Americans",
+      "Our Supreme Court",
+      "The Supreme Law"
+    ],
+    correctAnswerString: "We the People",
+    correctAnswer: 0,
+    userAnswer: null
+  },
+  //question4:
+  {
+    question: "What is an amendment?",
+    answers: [
+      "a change (to the Constitution)", // an addition (to the Constitution)
+      "a change (to the American People)",
+      "a change (to our laws)",
+      "a change (to our President)"
+    ],
+    correctAnswerString: "a change (to the Constitution)",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question5:
   {
     question: "What do we call the first ten amendments to the Constitution?",
@@ -45,6 +84,19 @@ let quizAppQuestions = [
   },
   //question6:
   {
+    question: "What is one right or freedom from the First Amendment?",
+    answers: [
+      "speech", //religion, assembly, press, petition the government
+      "alcohol",
+      "firearm",
+      "citizenship"
+    ],
+    correctAnswerString: "speech",
+    correctAnswer: 0,
+    userAnswer: null
+  },
+  //question7:
+  {
     question: "How many amendments does the Constitution have?",
     answers: [
       "26",
@@ -56,6 +108,37 @@ let quizAppQuestions = [
     correctAnswer: 1,
     userAnswer: null
   },
+  //question8:
+  {
+    question: "What did the Declaration of Independence do?",
+    answers: [
+      "declared our independence (from Great Britain)", //announced our independence (from Great Britain), said that the United States is free (from Great Britain)
+      "declared our independence (from South)",
+      "declared our independence (from France)",
+      "declared our independence (from the Natives)"
+    ],
+    correctAnswerString: "declared our independence (from Great Britain)",
+    correctAnswer: 0,
+    userAnswer: null
+  },
+  //question9:
+  {
+    question: "What are two rights in the Declaration of Independence?",
+    answers: [
+      "life & liberty",
+      "life & land",
+      "liberty & freedom",
+      "pursuit of happiness & land"
+    ],
+    correctAnswerString: "life & liberty",
+    correctAnswer: 0,
+    userAnswer: null
+  },
+  //question10:
+  //question11:
+  //question12:
+  //question13:
+  //question14:
   //question15:
   {
     question: "Who is in charge of the executive branch?",
@@ -69,6 +152,9 @@ let quizAppQuestions = [
     correctAnswer: 1,
     userAnswer: null
   },
+  //question16:
+  //question17:
+  //question18:
   //question19:
   {
     question: "We elect a U.S. Senator for how many years?",
@@ -82,6 +168,43 @@ let quizAppQuestions = [
     correctAnswer: 2,
     userAnswer: null
   },
+  //question20:
+  //question21:
+  //question22:
+  //question23:
+  //question24:
+  //question25:
+  //question26:
+  //question27:
+  //question28:
+  //question29:
+  //question30:
+  //question31:
+  //question32:
+  //question33:
+  //question34:
+  //question35:
+  //question36:
+  //question37:
+  //question38:
+  //question39:
+  //question40:
+  //question40:
+  //question41:
+  //question42:
+  //question43:
+  //question44:
+  //question45:
+  //question46:
+  //question47:
+  //question48:
+  //question49:
+  //question50:
+  //question51:
+  //question52:
+  //question53:
+  //question54:
+  //question55:
   //question56:
   {
     question: "When is the last day you can send in federal income tax forms?",
@@ -95,6 +218,11 @@ let quizAppQuestions = [
     correctAnswer: 3,
     userAnswer: null
   },
+  //question57:
+  //question58:
+  //question59:
+  //question60:
+  //question61:
   //question62:
   {
     question: "Who wrote the Declaration of Independence?",
@@ -108,6 +236,9 @@ let quizAppQuestions = [
     correctAnswer: 3,
     userAnswer: null
   },
+  //question63:
+  //question64:
+  //question65:
   //question66:
   {
     question: "When was the Constitution written?",
@@ -121,6 +252,9 @@ let quizAppQuestions = [
     correctAnswer: 1,
     userAnswer: null
   },
+  //question67:
+  //question68:
+  //question69:
   //question70:
   {
     question: "Who was the first President?",
@@ -134,6 +268,14 @@ let quizAppQuestions = [
     correctAnswer: 1,
     userAnswer: null
   },
+  //question71:
+  //question72:
+  //question73:
+  //question74:
+  //question75:
+  //question76:
+  //question77:
+  //question78:
   //question79:
   {
     question: "Who was President during World War I?",
@@ -147,6 +289,7 @@ let quizAppQuestions = [
     correctAnswer: 3,
     userAnswer: null
   },
+  //question80:
   //question81:
   {
     question: "Who did the United States fight in World War II?",
@@ -160,6 +303,11 @@ let quizAppQuestions = [
     correctAnswer: 0,
     userAnswer: null
   },
+  //question82:
+  //question83:
+  //question84:
+  //question85:
+  //question86:
   //question87:
   {
     question: "Name one American Indian tribe in the United States.",
@@ -173,6 +321,10 @@ let quizAppQuestions = [
     correctAnswer: 3,
     userAnswer: null
   },
+  //question88:
+  //question89:
+  //question90:
+  //question91:
   //question92:
   {
     question: "Name one state that borders Canada.",
