@@ -135,10 +135,70 @@ let quizAppQuestions = [
     userAnswer: null
   },
   //question10:
+  {
+    question: "What is freedom of religion?",
+    answers: [
+      "You can practice any religion, or not practice a religion.",
+      "You can practice one religion, and only one religion.",
+      "You can practice Christianism, or other Christian religion.",
+      "You can practice Atheism, or not practice a religion."
+    ],
+    correctAnswerString: "You can practice any religion, or not practice a religion.",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question11:
+  {
+    question: "What is the economic system in the United States?*",
+    answers: [
+      "Capitalist economy", //market economy
+      "Socialist economy",
+      "Digital economy",
+      "Virtual economy"
+    ],
+    correctAnswerString: "Capitalist economy",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question12:
+  {
+    question: "What is the “rule of law”?",
+    answers: [
+      "No one is above the law.", //Everyone must follow the law. Leaders must obey the law. Government must obey the law.
+      "Only the goverment is above the law.",
+      "The President is above the law.",
+      "Politician are above the law."
+    ],
+    correctAnswerString: "No one is above the law.",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question13:
+  {
+    question: "Name one branch or part of the government.*",
+    answers: [
+      "executive", //Congress, legislative, President, the courts, judicial
+      "republicans",
+      "democrats",
+      "Senate"
+    ],
+    correctAnswerString: "executive",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question14:
+  {
+    question: "What stops one branch of government from becoming too powerful?",
+    answers: [
+      "separation of powers", //checks and balances
+      "FBI",
+      "CIA",
+      "NSA"
+    ],
+    correctAnswerString: "separation of powers",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question15:
   {
     question: "Who is in charge of the executive branch?",
