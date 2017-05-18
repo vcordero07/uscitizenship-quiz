@@ -213,8 +213,44 @@ let quizAppQuestions = [
     userAnswer: null
   },
   //question16:
+  {
+    question: "Who makes federal laws?",
+    answers: [
+      "the Congress", //Senate and House (of Representatives), (U.S. or national) legislature
+      "the President",
+      "the Supreme Court",
+      "the Vice President"
+    ],
+    correctAnswerString: "the Congress",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question17:
+  {
+    question: "What are the two parts of the U.S. Congress?*",
+    answers: [
+      "the Senate and House (of Representatives)",
+      "the Democrats and the Republicans",
+      "the President and the Vice President",
+      "the Speaker and the House"
+    ],
+    correctAnswerString: "the Senate and House (of Representatives)",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question18:
+  {
+    question: "How many U.S. Senators are there?",
+    answers: [
+      "fifty (50)",
+      "twenty five (25)",
+      "one hundred (100)",
+      "one hundred twenty five (125)"
+    ],
+    correctAnswerString: "one hundred (100)",
+    correctAnswer: 2,
+    userAnswer: null
+  },
   //question19:
   {
     question: "We elect a U.S. Senator for how many years?",
