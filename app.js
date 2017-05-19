@@ -265,20 +265,156 @@ let quizAppQuestions = [
     userAnswer: null
   },
   //question20:
+  //Who is one of your state’s U.S. Senators now?*
   //question21:
+  {
+    question: "The House of Representatives has how many voting members?",
+    answers: [
+      "four hundred thirty-five (435)",
+      "four hundred thirty-four (434)",
+      "four hundred thirty-six (436)",
+      "four hundred thirty-three (433)"
+    ],
+    correctAnswerString: "four hundred thirty-five (435)",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question22:
+  {
+    question: "We elect a U.S. Representative for how many years?",
+    answers: [
+      "two (2)",
+      "six (6)",
+      "eight (8)",
+      "four (4)"
+    ],
+    correctAnswerString: "two (2)",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question23:
+  //Name your U.S. Representative.
   //question24:
+  {
+    question: "Who does a U.S. Senator represent?",
+    answers: [
+      "all people of the state",
+      "all people of the city",
+      "all people of the counties",
+      "all people of the capital"
+    ],
+    correctAnswerString: "all people of the state",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question25:
+  {
+    question: "Why do some states have more Representatives than other states?",
+    answers: [
+      "(because of) the state’s population", //(because) they have more people, (because) some states have more people
+      "(because of) the country population",
+      "(because of) the city’s population",
+      "(because of) the counties’s population"
+    ],
+    correctAnswerString: "(because of) the state’s population",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question26:
+  {
+    question: "We elect a President for how many years?",
+    answers: [
+      "four (4)",
+      "six (6)",
+      "eight (8)",
+      "ten (10)"
+    ],
+    correctAnswerString: "four (4)",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question27:
+  {
+    question: "In what month do we vote for President?*",
+    answers: [
+      "November",
+      "December",
+      "October",
+      "September"
+    ],
+    correctAnswerString: "November",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question28:
+  //What is the name of the President of the United States now?*
   //question29:
+  //What is the name of the Vice President of the United States now?
   //question30:
+  {
+    question: "If the President can no longer serve, who becomes President?",
+    answers: [
+      "the Vice President",
+      "the National Security Advisor",
+      "the Secretary of State",
+      "the Speaker of the House"
+    ],
+    correctAnswerString: "the Vice President",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question31:
+  {
+    question: "If both the President and the Vice President can no longer serve, who becomes President?",
+    answers: [
+      "the Vice President",
+      "the National Security Advisor",
+      "the Secretary of State",
+      "the Speaker of the House"
+    ],
+    correctAnswerString: "the Vice President",
+    correctAnswer: 3,
+    userAnswer: null
+  },
   //question32:
+  {
+    question: "Who is the Commander in Chief of the military?",
+    answers: [
+      "the Vice President",
+      "the President",
+      "the Secretary of State",
+      "the Speaker of the House"
+    ],
+    correctAnswerString: "the President",
+    correctAnswer: 1,
+    userAnswer: null
+  },
   //question33:
+  {
+    question: "Who signs bills to become laws?",
+    answers: [
+      "the Vice President",
+      "the President",
+      "the Secretary of State",
+      "the Speaker of the House"
+    ],
+    correctAnswerString: "the President",
+    correctAnswer: 1,
+    userAnswer: null
+  },
   //question34:
+  {
+    question: "Who vetoes bills?",
+    answers: [
+      "the Vice President",
+      "the President",
+      "the Secretary of State",
+      "the Speaker of the House"
+    ],
+    correctAnswerString: "the President",
+    correctAnswer: 1,
+    userAnswer: null
+  },
   //question35:
   //question36:
   //question37:
