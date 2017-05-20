@@ -416,13 +416,85 @@ let quizAppQuestions = [
     userAnswer: null
   },
   //question35:
+  {
+    question: "What does the President’s Cabinet do?",
+    answers: [
+      "advises the President",
+      "advises the Congress",
+      "advises the Vice President",
+      "advises the Senate"
+    ],
+    correctAnswerString: "advises the President",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question36:
+  {
+    question: "What are two Cabinet-level positions?",
+    answers: [
+      "Secretary of State & Secretary of Education",
+      "Secretary of Agriculture & Secretary of Media",
+      "Secretary of Commerce & Secretary of Veterinary",
+      "Secretary of Defense & Secretary of Guns"
+    ],
+    correctAnswerString: "Secretary of State & Secretary of Education",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question37:
+  {
+    question: "What does the judicial branch do?",
+    answers: [
+      "reviews laws", //explains laws, resolves disputes (disagreements), decides if a law goes against the Constitution
+      "judge criminals",
+      "jail criminals",
+      "sentence criminals"
+    ],
+    correctAnswerString: "reviews laws",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question38:
+  {
+    question: "What is the highest court in the United States?",
+    answers: [
+      "the Supreme Court",
+      "the Supreme Law",
+      "the Supreme Judge",
+      "the Supreme Coil"
+    ],
+    correctAnswerString: "the Supreme Court",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question39:
+  {
+    question: "How many justices are on the Supreme Court?",
+    answers: [
+      "nine (9)",
+      "ten (10)",
+      "eleven (11)",
+      "eight (8)"
+    ],
+    correctAnswerString: "nine (9)",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question40:
-  //question40:
+  {
+    question: "Who is the Chief Justice of the United States now?",
+    answers: [
+      "John Roberts", //(John G. Roberts, Jr.)
+      "Sonia Sotomayor",
+      "Ruth Bader Ginsburg",
+      "Anthony Kennedy"
+    ],
+    correctAnswerString: "John Roberts",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question41:
+
   //question42:
   //question43:
   //question44:
