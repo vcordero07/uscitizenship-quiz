@@ -978,7 +978,7 @@ let deleteUserAnswers = () => {
 
 
 let questionDisplay = () => {
-  console.log(quizAppData);
+  //console.log(quizAppData);
   $("#question").text(quizAppData[currentQuestion].question);
 
   $("#answers").empty();
@@ -1156,6 +1156,7 @@ let handleClickTryAgain = () => {
   numOfCorrectAnswers = 0;
 
   deleteUserAnswers();
+  quizAppData = getQuizAppQuestions(_.shuffle(quizAppQuestions));
 };
 
 let handleClickStart = () => {
