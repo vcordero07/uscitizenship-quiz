@@ -494,21 +494,200 @@ let quizAppQuestions = [
     userAnswer: null
   },
   //question41:
-
+  {
+    question: "Under our Constitution, some powers belong to the federal government. What is one power of the federal government?",
+    answers: [
+      "to print money", // to declare war, to create an army, to make treaties
+      "to print license",
+      "to print books",
+      "to print passports"
+    ],
+    correctAnswerString: "to print money",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question42:
+  {
+    question: "Under our Constitution, some powers belong to the states. What is one power of the states?",
+    answers: [
+      "provide schooling and education", //provide protection (police), provide safety (fire departments), give a driver’s license, approve zoning and land use
+      "provide alcohol",
+      "provide tobacco",
+      "provide schooling with bicycles"
+    ],
+    correctAnswerString: "provide schooling and education",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question43:
+  // {
+  //   question: "Who is the Governor of your state now?",
+  //   answers: [
+  //     "",
+  //     "",
+  //     "",
+  //     ""
+  //   ],
+  //   correctAnswerString: "",
+  //   correctAnswer: 0,
+  //   userAnswer: null
+  // },
   //question44:
+  // {
+  //   question: "What is the capital of your state?*",
+  //   answers: [
+  //     "",
+  //     "",
+  //     "",
+  //     ""
+  //   ],
+  //   correctAnswerString: "",
+  //   correctAnswer: 0,
+  //   userAnswer: null
+  // },
   //question45:
+  {
+    question: "What are the two major political parties in the United States?*",
+    answers: [
+      "Democratic & Republican",
+      "Democratic & Socialist",
+      "Green & Independets",
+      "Socialist & Libertarian"
+    ],
+    correctAnswerString: "Democratic & Republican",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question46:
+  {
+    question: "What is the political party of the President now?",
+    answers: [
+      "Republican (Party)",
+      "Democratic (Party)",
+      "Libertarian (Party)",
+      "Green (Party)"
+    ],
+    correctAnswerString: "Republican (Party)",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question47:
+  // {
+  //   question: "What is the name of the Speaker of the House of Representatives now?",
+  //   answers: [
+  //     "",
+  //     "",
+  //     "",
+  //     ""
+  //   ],
+  //   correctAnswerString: "",
+  //   correctAnswer: 0,
+  //   userAnswer: null
+  // },
   //question48:
+  {
+    question: "There are four amendments to the Constitution about who can vote. Describe one of them.",
+    answers: [
+      "Citizens eighteen (18) and older (can vote).", //You don’t have to pay (a poll tax) to vote., Any citizen can vote. (Women and men can vote.), A male citizen of any race (can vote).
+      "Citizens seventeen (17) and older (can vote).",
+      "Citizens nineteen (19) and older (can vote).",
+      "Citizens twenty one (21) and older (can vote)."
+    ],
+    correctAnswerString: "Citizens eighteen (18) and older (can vote).",
+    correctAnswer: 0,
+    userAnswer: null
+  },
   //question49:
+  // {
+  //   question: "",
+  //   answers: [
+  //     "",
+  //     "",
+  //     "",
+  //     ""
+  //   ],
+  //   correctAnswerString: "",
+  //   correctAnswer: 0,
+  //   userAnswer: null
+  // },
   //question50:
+  // {
+  //   question: "",
+  //   answers: [
+  //     "",
+  //     "",
+  //     "",
+  //     ""
+  //   ],
+  //   correctAnswerString: "",
+  //   correctAnswer: 0,
+  //   userAnswer: null
+  // },
   //question51:
+  // {
+  //   question: "",
+  //   answers: [
+  //     "",
+  //     "",
+  //     "",
+  //     ""
+  //   ],
+  //   correctAnswerString: "",
+  //   correctAnswer: 0,
+  //   userAnswer: null
+  // },
   //question52:
+  // {
+  //   question: "",
+  //   answers: [
+  //     "",
+  //     "",
+  //     "",
+  //     ""
+  //   ],
+  //   correctAnswerString: "",
+  //   correctAnswer: 0,
+  //   userAnswer: null
+  // },
   //question53:
-  //question54:
+  // {
+  //   question: "",
+  //   answers: [
+  //     "",
+  //     "",
+  //     "",
+  //     ""
+  //   ],
+  //   correctAnswerString: "",
+  //   correctAnswer: 0,
+  //   userAnswer: null
+  // },
+  // //question54:
+  // {
+  //   question: "",
+  //   answers: [
+  //     "",
+  //     "",
+  //     "",
+  //     ""
+  //   ],
+  //   correctAnswerString: "",
+  //   correctAnswer: 0,
+  //   userAnswer: null
+  // },
   //question55:
+  // {
+  //   question: "",
+  //   answers: [
+  //     "",
+  //     "",
+  //     "",
+  //     ""
+  //   ],
+  //   correctAnswerString: "",
+  //   correctAnswer: 0,
+  //   userAnswer: null
+  // },
   //question56:
   {
     question: "When is the last day you can send in federal income tax forms?",
