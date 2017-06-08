@@ -1,9 +1,12 @@
 console.clear();
-//05-10-17
+//06-7-17
 //need to add remaining questions
 //need to add uncle sam logo
 //need to add 30 second timer for each question
 //need to add a share button at the end of the results
+// yourArray.sort(function(a, b){return 0.5 - Math.random()});
+// Array.prototype.shuffle = function(){ .. }
+// yourArray.shuffle()
 
 const classes = {
   correctMSG: ["Aye Captain", "Indubitably", "OK", "Sure", "Oh Yeah", "Yay"],
